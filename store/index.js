@@ -50,5 +50,12 @@ export const getters = {
       (accumulator, next) => accumulator + +next.combinedPrice,
       0
     );
+  },
+  cartCount: state => {
+    if (!state.cart.length) return 0;
+    return state.cart.reduce(
+      (accumulator, next) => accumulator + +next.count,
+      0
+    );
   }
 };
