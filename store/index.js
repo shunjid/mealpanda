@@ -42,3 +42,13 @@ export const actions = {
     }
   }
 };
+
+export const getters = {
+  totalPrice: state => {
+    if (!state.cart.length) return 0;
+    return state.cart.reduce(
+      (accumulator, next) => accumulator + +next.combinedPrice,
+      0
+    );
+  }
+};
