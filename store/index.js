@@ -1,11 +1,18 @@
+import { v4 as uuidv4 } from "uuid";
+
 export const state = () => ({
-  fooddata: []
+  fooddata: [],
+  cart: []
 });
 
 // responsible for updating the state of the app
 export const mutations = {
   updateFoodData: (state, data) => {
     state.fooddata = data;
+  },
+  addToCart: (state, formOutput) => {
+    formOutput.id = uuidv4();
+    state.cart.push(formOutput);
   }
 };
 
